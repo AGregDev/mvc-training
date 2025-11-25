@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Tiramisu Classic",
+        "price": 85,
+        "rating": 5,
+        "type": "cake"
+    },
+    {
+        "name": "Chocolate Lava Cake",
+        "price": 95,
+        "rating": 4.5,
+        "type": "cake"
+    },
+    {
+        "name": "Vanilla Gelato",
+        "price": 65,
+        "rating": 4,
+        "type": "ice-cream"
+    },
+    {
+        "name": "Panna Cotta",
+        "price": 75,
+        "rating": 4.8,
+        "type": "pudding"
+    },
+    {
+        "name": "Cannoli",
+        "price": 70,
+        "rating": 4.2,
+        "type": "pastry"
+    }
+]
+
+
