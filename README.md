@@ -6,248 +6,139 @@ A hands-on training project to learn **Model-View-Controller (MVC)** architectur
 
 ```bash
 npm install    # Install dependencies
-npm test       # Run tests (see what passes/fails)
-npm start      # Start the application at http://localhost:3000
+npm test       # Run tests (you'll see failures - that's expected!)
+npm start      # Start at http://localhost:3000
 ```
 
 ---
 
-## 📁 Project Structure
+## 🎯 What You'll See
 
-```
-app/
-├── models/       # Data & business logic
-│   ├── pizza.js      ✅ Complete - Your reference!
-│   ├── pasta.js      🔨 TODO: getMostExpensive
-│   ├── starter.js    🚧 TODO: getTopRated, validate
-│   └── dessert.js    🚧 TODO: All helper methods
-├── views/        # UI rendering (no logic)
-│   ├── pizzaView.js  ✅ Complete
-│   ├── pastaView.js  🔨 TODO: Fix renderRow, renderStars
-│   ├── starterView.js 🚧 TODO: Implement all methods
-│   └── dessertView.js 🚧 TODO: Implement (try cards!)
-├── controllers/  # Coordinates Model & View
-│   └── ...       (various TODO methods)
-└── utils/        # 🔥 Shared utilities (advanced challenge)
+Navigate through the site and observe:
 
-test/             # Test files with some TODOs
-db/               # JSON database files
-```
+### ✅ Pizzas (Complete)
+- **Working stats cards**: Total count, average price, top rated
+- All features functional
+- Study this as your reference!
 
----
+### ✅ Starters (Complete)
+- **Working stats cards**: Total count, average price, best value
+- All features functional
+- Another complete example
 
-## 🎓 Training Path
+### 🔨 Pastas (Broken Stats)
+- Table displays correctly
+- **Stats cards show ???** - Need to implement `calculateStats()` and `getMostExpensive()`
+- Yellow warning tells you what to fix
 
-### Level 1: Study Pizza Module (15 min) ⭐
-
-**Understand MVC by example**
-
-1. **Model** (`app/models/pizza.js`)
-   - Fetches data, performs calculations
-   - No UI code
-
-2. **View** (`app/views/pizzaView.js`)
-   - Renders HTML
-   - No data fetching
-
-3. **Controller** (`app/controllers/pizzaController.js`)
-   - Coordinates Model + View
-   - Updates DOM
-
-**Try it:**
-```bash
-npm test pizza    # See tests
-npm start         # Click "Pizzas" in browser
-```
+### 🚧 Desserts (Not Grouped)
+- Basic display works
+- **Not grouped by type** - Need to implement `groupByType()` and `filterByType()`
+- Blue info box explains what's needed
 
 ---
 
-### Level 2: Fix Pasta View (20 min) ⭐
+## 📚 Training Path
 
-**Visual TODOs in browser!**
+### Step 1: Study Complete Examples (20 min)
 
-Navigate to Pastas → see yellow warning banner
+**Pizza Module** - Complete reference implementation
+- `app/models/pizza.js` - See how methods are used
+- `app/views/pizzaView.js` - See how stats are calculated and displayed
+- `app/controllers/pizzaController.js` - See the coordination
 
-**Tasks:**
-- Open `app/views/pastaView.js`
-- Fix `renderRow()` - format price as `$1.80`
-- Fix `renderStars()` - show star icons
-- Pattern: Copy from `pizzaView.js`
+**Starters Module** - Another complete example
+- Compare with Pizza to see the pattern
+- Notice similar structure
 
-**Verify:** Page looks like Pizzas page
-
----
-
-### Level 3: Pasta Model + TDD (20 min) ⭐⭐
-
-**Test-Driven Development practice**
-
-```bash
-npm test pasta.model  # See failing test
-```
-
-**Tasks:**
-1. Open `app/models/pasta.js`
-2. Implement `getMostExpensive(pastas)`
-3. Run tests → should pass ✅
-
-**Bonus:** Complete TODO test in `test/models/pasta.model.test.js`
-
-**TDD Cycle:**
-- 🔴 Red: Test fails
-- 🟢 Green: Make it pass
-- 🔄 Refactor: Improve code
+**Key Observation**: Every method is actually used to display features on the page!
 
 ---
 
-### Level 4: Complete Starter Module (45 min) ⭐⭐
+### Step 2: Fix Pasta Stats (30 min) 🔨
 
-**Full MVC implementation**
+**What's Broken**: Navigate to Pastas → stats cards show "???"
 
-Navigate to Starters → see blue info box with instructions
+**Why**: `calculateStats()` returns zeros because it's not implemented
 
-**Model** (`app/models/starter.js`):
-- Implement `getTopRated(starters, limit)`
-- Implement `validate(starter)`
+**Your Task**:
 
-**View** (`app/views/starterView.js`):
-- Implement `renderList(starters)`
-- Implement `renderRow(starter, index)`
-- Implement `renderStars(rating)`
-
-**Tests**:
-- Complete 2 TODOs in `test/models/starter.model.test.js`
-
-**Verify:**
-```bash
-npm test starter       # All pass?
-npm start              # Navigate to Starters
-```
-
----
-
-### Level 5: Build Dessert Module (60 min) ⭐⭐⭐
-
-**Create from scratch**
-
-Navigate to Desserts → see creative challenge
-
-**Model** (`app/models/dessert.js`):
-- Implement `filterByType(desserts, type)`
-- Implement `isSpecial(dessert)` - rating >= 4.5
-- Implement `validate(dessert)`
-
-**View** (`app/views/dessertView.js`):
-- **Challenge:** Use Bootstrap cards, not table!
-- Hint provided in blue box on page
-
-**Controller** (`app/controllers/dessertController.js`):
-- Implement `getDessertsByType(type)`
-- Implement `getSpecialDesserts()`
-- Implement `groupByType(desserts)`
-
-**Tests:**
-- Complete TODOs in `test/models/dessert.model.test.js`
-- Add test in `test/controllers/dessert.controller.test.js`
-
-**Example card layout:**
-```html
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5>${dessert.name}</h5>
-        <span class="badge">${dessert.type}</span>
-        <p>${formatPrice(dessert.price)}</p>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
----
-
-### Level 6: Pizza Advanced (20 min) ⭐⭐
-
-**Complete remaining features**
-
-**Model** (`app/models/pizza.js`):
-- Implement `findByName(pizzas, name)` - case insensitive
-- Implement `validate(pizza)`
-
-**Tests:**
-- Complete TODO in `test/models/pizza.model.test.js`
-- Complete TODO in `test/controllers/pizza.controller.test.js`
-
----
-
-### 🔥 Level 7: ADVANCED CHALLENGE - Refactoring (45 min) ⭐⭐⭐⭐
-
-**Problem:** Code duplication! 
-
-`renderStars()` is identical in every view - this violates DRY (Don't Repeat Yourself).
-
-**Your Mission:**
-
-1. **Create shared utilities:**
-   ```javascript
-   // app/utils/viewHelpers.js
-   export const renderStars = (rating) => {
-     // Move logic here
-   };
-   
-   export const formatPrice = (cents) => {
-     return `$${(cents / 100).toFixed(2)}`;
-   };
-   ```
-
-2. **Refactor all views:**
-   ```javascript
-   import { renderStars, formatPrice } from '../utils/viewHelpers.js';
-   
-   // Use in views
-   <td>${formatPrice(item.price)}</td>
-   <td>${renderStars(item.rating)}</td>
-   ```
-
-3. **Write tests:**
-   - Complete `test/utils/viewHelpers.test.js`
-   - Test `renderStars()` with ratings 0, 3, 5
-   - Test `formatPrice()` with various amounts
-
-4. **Verify everything works:**
+1. **Run tests first** (TDD approach):
    ```bash
-   npm test              # All pass?
-   npm start             # All pages work?
+   npm test pasta
    ```
+   You'll see failures for `getMostExpensive()` and `calculateStats()`
 
-**Skills Practiced:**
-- Identifying code smells
-- Refactoring without breaking functionality  
-- Creating reusable utilities
-- Maintaining test coverage
+2. **Implement `getMostExpensive(pastas)`** in `app/models/pasta.js`:
+   - Return the pasta with the highest price
+   - Return null for empty array
+   - Tests should pass ✅
+
+3. **Implement `calculateStats(pastas)`** in `app/models/pasta.js`:
+   - Calculate average price
+   - Get total count
+   - Find most expensive using your `getMostExpensive()` method
+   - Return object: `{ avgPrice, totalCount, mostExpensive }`
+   
+4. **Verify in browser**:
+   - Navigate to Pastas
+   - Stats cards should now show real data!
+   - No more "???"
+
+**TDD Cycle**:
+- 🔴 Red: Tests fail
+- 🟢 Green: Implement code, tests pass
+- 🔄 Refactor: Improve if needed
+- ✨ See it work in the browser!
+
+---
+
+### Step 3: Group Desserts by Type (45 min) 🚧
+
+**What's Missing**: Desserts show info box instead of categorized display
+
+**Why**: `groupByType()` returns empty object
+
+**Your Task**:
+
+1. **Run tests**:
+   ```bash
+   npm test dessert
+   ```
+   
+2. **Implement `filterByType(desserts, type)`** in `app/models/dessert.js`:
+   - Filter desserts array by type property
+   - Return matching desserts
+
+3. **Implement `groupByType(desserts)`** in `app/models/dessert.js`:
+   - Group desserts into object by type
+   - Return: `{ "cake": [...], "ice-cream": [...], "pudding": [...] }`
+   - Hint: Use `reduce()` or loop through and build object
+
+4. **See the magic** in browser:
+   - Navigate to Desserts
+   - Should now show desserts in card sections by type!
+   - "Cakes", "Ice Cream", "Pudding" sections
 
 ---
 
 ## 🎯 Success Criteria
 
 ✅ Training complete when:
-- All 4 menu pages display correctly
+- Pasta stats cards show real data (not "???")
+- Desserts display in categorized card sections
 - All tests pass (`npm test` → 0 failures)
-- You can explain Model, View, Controller roles
-- You understand TDD workflow
-- 🌟 **Bonus:** Completed refactoring challenge
+- You understand how Model methods are used in Views
 
 ---
 
 ## 🧪 Testing Commands
 
 ```bash
-npm test                    # Run all tests
-npm test pizza              # Run specific module
-npm test pasta.model        # Run specific file
-npm run test:watch          # Auto-rerun on changes
-npm run test:coverage       # Coverage report
+npm test              # Run all tests
+npm test pizza        # Run pizza tests (should all pass)
+npm test pasta        # Run pasta tests (will fail initially)
+npm test dessert      # Run dessert tests (will fail initially)
 ```
 
 ---
@@ -255,76 +146,76 @@ npm run test:coverage       # Coverage report
 ## 🔍 Key Concepts
 
 ### MVC Architecture
-- **Model**: Data + business logic (no UI)
-- **View**: Renders HTML (no data fetching)
-- **Controller**: Coordinates (minimal logic)
+- **Model**: Business logic that Views actually use
+  - Example: `calculateStats()` used by view to show cards
+- **View**: Renders UI using Model data
+  - Example: Shows stats cards if Model provides data
+- **Controller**: Fetches from Model, passes to View
 
 ### TDD Workflow
-1. 🔴 Write test → see it fail
-2. 🟢 Write code → test passes
-3. 🔄 Refactor → tests stay green
+1. 🔴 Run tests → see failures
+2. 🟢 Write code → tests pass
+3. ✅ Check browser → feature works
+4. 🔄 Refactor if needed
 
-### DRY Principle
-Don't Repeat Yourself → extract shared code!
+### Why This Approach?
+Every method you implement has a **visible impact**:
+- Fix `calculateStats()` → stats cards appear
+- Fix `groupByType()` → desserts get organized
+- **Your code matters** - you see it work!
 
 ---
 
 ## 🆘 Troubleshooting
 
-**Tests not running?**
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
+**Pasta stats still showing "???"**
+- Did you implement BOTH methods?
+- Check if `getMostExpensive()` returns the right pasta
+- Make sure `calculateStats()` uses `getMostExpensive()`
 
-**Page not loading?**
-- Check browser console (F12)
-- Verify `npm start` is running
-- Try clearing cache (Ctrl+Shift+R)
+**Desserts not showing in sections**
+- Check if `groupByType()` returns proper object structure
+- Try `console.log()` to see what you're returning
+- Look at the test to see expected format
 
-**Don't understand MVC?**
-- Study Pizza module thoroughly
-- Draw flow diagram: User → Controller → Model → Controller → View
-- Trace one request through the code
+**Tests failing**
+- Read the error message - it tells you what's expected
+- Look at Pizza/Starters for working examples
+- Compare your implementation with the pattern
 
 ---
 
 ## ⏱️ Time Estimates
 
-| Level | Time | Difficulty |
-|-------|------|------------|
-| 1. Study Pizza | 15 min | ⭐ |
-| 2. Pasta View | 20 min | ⭐ |
-| 3. Pasta Model | 20 min | ⭐⭐ |
-| 4. Starter Module | 45 min | ⭐⭐ |
-| 5. Dessert Module | 60 min | ⭐⭐⭐ |
-| 6. Pizza Advanced | 20 min | ⭐⭐ |
-| 7. Refactoring | 45 min | ⭐⭐⭐⭐ |
-| **Total** | **4-7 hours** | |
+| Task | Time | 
+|------|------|
+| Study examples | 20 min |
+| Fix Pasta stats | 30 min |
+| Group Desserts | 45 min |
+| **Total** | **~2 hours** |
 
 ---
 
-## 🌟 Beyond Training
+## 📝 What Makes This Training Special
 
-After completing:
-- Add search/filter functionality
-- Implement shopping cart
-- Create admin CRUD panel
-- Add user authentication
-- Build real backend API
+1. **Real Impact**: Every method you write changes what you see
+2. **Visual Feedback**: Broken features are obvious (??? or info boxes)
+3. **Complete Examples**: Pizza & Starters show you how
+4. **TDD Practice**: Tests guide your implementation
+5. **Meaningful Code**: Nothing is "just for practice"
 
 ---
 
-## 📝 Tips for Success
+## 🌟 After Training
 
-1. **Start with Pizza** - It's your reference for everything
-2. **Read the tests** - They tell you exactly what to do
-3. **Use browser TODOs** - Visual guides on each page
-4. **Test often** - Run tests after each change
-5. **Ask "why?"** - Understanding > completing
+Now that you understand the pattern, try:
+- Add a search feature (users can find items)
+- Add filtering UI (show only 5-star items)
+- Add a shopping cart
+- Create your own category!
 
 ---
 
 **Happy Learning! 🚀**
 
-*Remember: The goal is understanding MVC and TDD, not just finishing tasks.*
+*Remember: If you can't see why you're implementing something, ask yourself: "Where is this used in the view?"*
