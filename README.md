@@ -185,27 +185,6 @@ Every method you implement has a **visible impact**:
 
 ---
 
-## ⏱️ Time Estimates
-
-| Task | Time | 
-|------|------|
-| Study examples | 20 min |
-| Fix Pasta stats | 30 min |
-| Group Desserts | 45 min |
-| **Total** | **~2 hours** |
-
----
-
-## 📝 What Makes This Training Special
-
-1. **Real Impact**: Every method you write changes what you see
-2. **Visual Feedback**: Broken features are obvious (??? or info boxes)
-3. **Complete Examples**: Pizza & Starters show you how
-4. **TDD Practice**: Tests guide your implementation
-5. **Meaningful Code**: Nothing is "just for practice"
-
----
-
 ## 🌟 After Training
 
 Now that you understand the pattern, try:
