@@ -91,6 +91,8 @@ Navigate through the site and observe:
 - 🔄 Refactor: Improve if needed
 - ✨ See it work in the browser!
 
+**Bonus**: Look for `TODO` comments in the test file to write additional tests for edge cases!
+
 ---
 
 ### Step 3: Group Desserts by Type (45 min) 🚧
@@ -120,6 +122,8 @@ Navigate through the site and observe:
    - Should now show desserts in card sections by type!
    - "Cakes", "Ice Cream", "Pudding" sections
 
+**Bonus**: Look for `TODO` comments in the test file to write additional tests!
+
 ---
 
 ## 🎯 Success Criteria
@@ -129,6 +133,11 @@ Navigate through the site and observe:
 - Desserts display in categorized card sections
 - All tests pass (`npm test` → 0 failures)
 - You understand how Model methods are used in Views
+
+🌟 **Bonus Challenge**:
+- Find and complete the `TODO` comments in test files
+- Write additional tests for edge cases
+- Practice writing tests BEFORE implementing features
 
 ---
 
