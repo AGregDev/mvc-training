@@ -1,7 +1,1 @@
 node_modules/
-coverage/
-.DS_Store
-*.log
-controllers/
-models/
-views/
