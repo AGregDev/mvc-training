@@ -1,6 +1,5 @@
 const StarterView = {
-    renderList(starters) {
-        const stats = this.calculateStats(starters);
+    renderList(starters, stats) {
         
         let html = `
             <div class="header-section mb-4">
@@ -78,12 +77,6 @@ const StarterView = {
             }
         }
         return stars;
-    },
-
-    calculateStats(starters) {
-        const avgPrice = starters.reduce((sum, s) => sum + s.price, 0) / starters.length;
-        const cheapest = starters.reduce((min, s) => s.price < min.price ? s : min);
-        return { avgPrice, cheapest };
     },
 
     renderError(message) {

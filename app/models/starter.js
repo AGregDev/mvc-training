@@ -27,12 +27,17 @@ const Starter = {
         );
     },
 
+    calculateAveragePrice(starters) {
+        if (!starters || starters.length === 0) return 0;
+        return starters.reduce((sum, s) => sum + s.price, 0) / starters.length;
+    },
+
     calculateStats(starters) {
         if (!starters || starters.length === 0) {
             return { avgPrice: 0, totalCount: 0, cheapest: null };
         }
         
-        const avgPrice = starters.reduce((sum, s) => sum + s.price, 0) / starters.length;
+        const avgPrice = this.calculateAveragePrice(starters);
         const cheapest = this.getCheapest(starters);
         
         return {

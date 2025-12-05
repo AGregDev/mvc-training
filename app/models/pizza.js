@@ -29,6 +29,17 @@ const Pizza = {
         return pizzas.reduce((max, pizza) => 
             pizza.rating > max.rating ? pizza : max
         );
+    },
+
+    calculateStats(pizzas) {
+        if (!pizzas || pizzas.length === 0) {
+            return { avgPrice: 0, topRated: null };
+        }
+        
+        const avgPrice = this.calculateAveragePrice(pizzas);
+        const topRated = this.getHighestRated(pizzas);
+        
+        return { avgPrice, topRated };
     }
 };
 

@@ -49,4 +49,22 @@ describe('Pizza Model', () => {
         // TODO: Write a test for when multiple pizzas have the same highest rating
         // Hint: Should return the first one found
     });
+
+    describe('calculateStats', () => {
+        test('should calculate stats correctly using other methods', () => {
+            const result = Pizza.calculateStats(mockPizzas);
+            expect(result.avgPrice).toBe(180);
+            expect(result.topRated.name).toBe("Pepperoni");
+            expect(result.topRated.rating).toBe(5);
+        });
+
+        test('should handle empty array', () => {
+            const result = Pizza.calculateStats([]);
+            expect(result.avgPrice).toBe(0);
+            expect(result.topRated).toBeNull();
+        });
+
+        // TODO: Write a test to verify that calculateStats uses calculateAveragePrice and getHighestRated
+        // Hint: The results should match calling those methods directly
+    });
 });

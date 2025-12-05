@@ -1,6 +1,5 @@
 const PizzaView = {
-    renderList(pizzas) {
-        const stats = this.calculateStats(pizzas);
+    renderList(pizzas, stats) {
         
         let html = `
             <div class="header-section mb-4">
@@ -78,12 +77,6 @@ const PizzaView = {
             }
         }
         return stars;
-    },
-
-    calculateStats(pizzas) {
-        const avgPrice = pizzas.reduce((sum, p) => sum + p.price, 0) / pizzas.length;
-        const topRated = pizzas.reduce((max, p) => p.rating > max.rating ? p : max);
-        return { avgPrice, topRated };
     },
 
     renderError(message) {

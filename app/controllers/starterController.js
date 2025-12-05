@@ -15,7 +15,8 @@ const StarterController = {
         
         Starter.getAll()
             .then((starters) => {
-                mainContent.innerHTML = StarterView.renderList(starters);
+                const stats = Starter.calculateStats(starters);
+                mainContent.innerHTML = StarterView.renderList(starters, stats);
             })
             .catch((error) => {
                 console.error("Error in StarterController.list:", error);

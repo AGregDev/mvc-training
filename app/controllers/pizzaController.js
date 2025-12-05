@@ -15,7 +15,8 @@ const PizzaController = {
         
         Pizza.getAll()
             .then((pizzas) => {
-                mainContent.innerHTML = PizzaView.renderList(pizzas);
+                const stats = Pizza.calculateStats(pizzas);
+                mainContent.innerHTML = PizzaView.renderList(pizzas, stats);
             })
             .catch((error) => {
                 console.error("Error in PizzaController.list:", error);
